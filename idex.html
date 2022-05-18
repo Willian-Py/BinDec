@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Conversos Binário</title>
+</head>
+
+<body>
+    <div class="title">
+        <h1>CONVERSOR DE NÚMEROS BINÁRIOS</h1>
+    </div>
+    <div class="container-all">
+        <div class="container">
+            <h1>DECIMAL PARA BINÁRIO</h1>
+            <div class="inputContainer">
+                <input type="text" maxlength="15" onchange="converter(this.value)">
+                <!--chama a function pegando o valor digitado -->
+                <button class="btn">Converter</button>
+            </div>
+            <div class="outputContainer">
+                <h1 id="res">0</h1>
+            </div>
+        </div>
+
+        <div class="container">
+            <h1>BINÁRIO PARA DECIMAL</h1>
+            <div class="inputContainer">
+                <input type="text" maxlength="15" onchange="BinárioDecimal(this.value)">
+                <!--chama a function pegando o valor digitado -->
+                <button class="btn">Converter</button>
+            </div>
+            <div class="outputContainer">
+                <h1 id="res-2">0</h1>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        function converter(num) {
+
+            var dec = parseInt(num) //converte string em number
+            var bin = dec.toString(2) // converte number para binario        
+
+            document.getElementById("res").innerText = bin //emite o numero em binário
+        }
+
+        function BinárioDecimal (binario){
+            var decimal = 0, i = 0, resto;
+
+            while (binario != 0) {
+             resto = binario % 10;
+           binario = Number.parseInt(binario / 10);
+           decimal = decimal + resto * Math.pow(2, i);
+           ++i;
+           }
+
+           document.getElementById("res-2").innerText = decimal
+        }
+    </script>
+</body>
+
+</html>
